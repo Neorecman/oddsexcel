@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --transition-speed: 0.4s;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Interactive elements */
+.btn {
+  @apply px-4 py-2 rounded-lg transition-all duration-400 transform;
+}
+
+.btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700 hover:scale-105;
+}
+
+.btn-outline {
+  @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-50 hover:scale-105;
+}
+
+/* Loading animation */
+.loading-spinner {
+  @apply animate-spin rounded-full border-4 border-primary-200 border-t-primary-600;
+}
+
+/* Form elements */
+input:focus, textarea:focus, select:focus {
+  @apply ring-2 ring-primary-500 ring-opacity-50 border-primary-500;
+}
+
+/* Hover effects */
+.hover-effect {
+  @apply transition-all duration-400 hover:shadow-lg hover:scale-105;
+}
+
+/* Success notification */
+.success-toast {
+  @apply bg-success-100 border-l-4 border-success-500 text-success-700;
+}
+
+/* Wave animation */
+.waves {
+  width: 100%;
+  height: 100px;
+  min-height: 50px;
+  max-height: 100px;
+}
+
+.wave-parallax > use {
+  animation: wave-move 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+
+.wave-parallax > use:nth-child(1) {
+  animation-delay: -2s;
+}
+
+.wave-parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 7s;
+}
+
+.wave-parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 10s;
+}
+
+.wave-parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 13s;
+}
+
+@keyframes wave-move {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
